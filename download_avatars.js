@@ -22,7 +22,6 @@ function getRepoContributors(repoOwner, repoName, cb) {
 }
 
 function downloadImageByURL(url, filepath) {
-
   request.get(url)
          .on('error', function(err) {
           throw err;

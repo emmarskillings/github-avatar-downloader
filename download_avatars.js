@@ -42,5 +42,10 @@ function callback(err, result) {
   }
 }
 
-getRepoContributors(owner, repo, callback);
+if(owner && repo) {
+  getRepoContributors(owner, repo, callback);
+}
+else {
+  console.log("ERROR: owner or repo name not specified.");
+};
 

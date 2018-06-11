@@ -12,12 +12,18 @@ function getRepoContributors(repoOwner, repoName, cb) {
       'Authorization': GITHUB_TOKEN
     }
   };
+
   request(options, function(err, res, body) {
-    cb(err, body);
+    var obj = JSON.parse(body);
+    cb(err, obj);
   });
 }
 
-getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
-});
+function callback(err, result) {
+  for (var i = 0; i < result.length; i++) {
+    console.log(result[i]['avatar_url']);
+  }
+};
+
+getRepoContributors("jquery", "jquery", callback);
+

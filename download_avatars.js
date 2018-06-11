@@ -1,7 +1,8 @@
-var GITHUB_TOKEN = require('./secrets.js');
-
 var request = require('request');
 var fs = require('fs');
+var GITHUB_TOKEN = require('./secrets.js');
+var owner = process.argv[2];
+var repo = process.argv[3];
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
@@ -41,7 +42,5 @@ function callback(err, result) {
   }
 }
 
-
-
-getRepoContributors("jquery", "jquery", callback);
+getRepoContributors(owner, repo, callback);
 
